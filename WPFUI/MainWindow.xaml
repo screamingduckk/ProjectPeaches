@@ -5,8 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ProjectPeaches" Height="768" Width="1024">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="225"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="menu" Background="AliceBlue"></Label>
+
+        <Grid Grid.Row="1" Grid.Column="0" Background="Beige">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Player:"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Gold:"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Stable Level:"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.StableLevel}"/>
+            <Label Grid.Row="3" Grid.Column="0"/>
+            <Label Grid.Row="4" Grid.Column="0"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Barn Name:"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding SelectedHorse.BarnName}"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Registered Name:"/>
+            <Label Grid.Row="6" Grid.Column="1" Content="{Binding SelectedHorse.FormalName}"/>
+            <Label Grid.Row="7" Grid.Column="0" Content="Age:"/>
+            <Label Grid.Row="7" Grid.Column="1" Content="{Binding SelectedHorse.Age}"/>
+            <Label Grid.Row="8" Grid.Column="0" Content="Gender:"/>
+            <Label Grid.Row="8" Grid.Column="1" Content="{Binding SelectedHorse.GenderId}"/>
+            <Label Grid.Row="9" Grid.Column="0" Content="Level: "/>
+            <Label Grid.Row="9" Grid.Column="1" Content="{Binding SelectedHorse.HorseLevel}"/>
+            
+            
+        </Grid>
+        
+        
+        <Label Grid.Row="1" Grid.Column="1" Content="horse" Background="Coral"></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="quests" Background="PaleGreen"></Label>
+        <Label Grid.Row="2" Grid.Column="2" Content="navigation" Background="Lavender"></Label>
+        
     </Grid>
 </Window>
