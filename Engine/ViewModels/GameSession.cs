@@ -12,6 +12,8 @@ namespace Engine.ViewModels
         public Player CurrentPlayer { get; set; }
         public Horse SelectedHorse { get; set; }
 
+        public Location CurrentLocation { get; set; }
+
         public GameSession() 
         {
             CurrentPlayer = new Player();
@@ -27,6 +29,13 @@ namespace Engine.ViewModels
             SelectedHorse.Age = 5;
             SelectedHorse.HorseLevel = 1;
             SelectedHorse.HorseXP = 0;
+
+            CurrentLocation = new Location();
+            CurrentLocation.Name = "Stable";
+            CurrentLocation.Description = "A cosy little stable.";
+            CurrentLocation.ImageName = "/Engine;component/Images/Locations/istockphoto-1475503557-612x612.jpg";
+
+
 
         }
     }
