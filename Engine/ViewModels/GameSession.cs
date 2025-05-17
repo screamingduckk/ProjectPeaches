@@ -1,4 +1,5 @@
-﻿using Engine.Models;
+﻿using Engine.Factories;
+using Engine.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Engine.ViewModels
 {
     public class GameSession
     {
+        public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
         public Horse SelectedHorse { get; set; }
-
         public Location CurrentLocation { get; set; }
 
         public GameSession() 
@@ -30,10 +31,9 @@ namespace Engine.ViewModels
             SelectedHorse.HorseLevel = 1;
             SelectedHorse.HorseXP = 0;
 
-            CurrentLocation = new Location();
-            CurrentLocation.Name = "Stable";
-            CurrentLocation.Description = "A cosy little stable.";
-            CurrentLocation.ImageName = "/Engine;component/Images/Locations/istockphoto-1475503557-612x612.jpg";
+            WorldFactory factory = new WorldFactory();
+            CurrentWorld = factory.CreateWorld();
+            CurrentLocation = CurrentWorld.LocationAt(0);
 
 
 

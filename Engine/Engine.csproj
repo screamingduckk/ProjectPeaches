@@ -7,11 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Locations\istockphoto-1475503557-612x612.jpg" />
+    <None Remove="Images\Locations\arena.jpg" />
+    <None Remove="Images\Locations\horse.jpg" />
+    <None Remove="Images\Locations\racetrack.jpg" />
+    <None Remove="Images\Locations\shop.jpg" />
+    <None Remove="Images\Locations\vet.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Locations\istockphoto-1475503557-612x612.jpg" />
+    <Resource Include="Images\Locations\arena.jpg" />
+    <Resource Include="Images\Locations\horse.jpg" />
+    <Resource Include="Images\Locations\racetrack.jpg" />
+    <Resource Include="Images\Locations\shop.jpg" />
+    <Resource Include="Images\Locations\stable.jpg" />
+    <Resource Include="Images\Locations\vet.jpg" />
   </ItemGroup>
 
 </Project>
