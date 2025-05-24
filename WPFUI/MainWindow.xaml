@@ -96,7 +96,51 @@
         
         
         <Label Grid.Row="2" Grid.Column="0" Content="quests" Background="PaleGreen"></Label>
-        <Label Grid.Row="2" Grid.Column="2" Content="navigation" Background="Lavender"></Label>
+
+        <Grid Grid.Row="2" Grid.Column="1" Background="Lavender">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="255"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" 
+                        Height="35" Width="85" Margin="10"
+                        Click="OnClick_LocID0"
+                        Content="Stable"/>
+                <Button Grid.Row="0" Grid.Column="1" 
+                        Height="35" Width="85" Margin="10"
+                        Click="OnClick_LocID2"
+                        Content="Arena"/>
+                <Button Grid.Row="1" Grid.Column="0" 
+                        Height="35" Width="85" Margin="10"
+                        Click="OnClick_LocID1"
+                        Content="Shop"/>
+                <Button Grid.Row="1" Grid.Column="1" 
+                        Height="35" Width="85" Margin="10"
+                        Click="OnClick_LocID4"
+                        Content="Vet"/>
+                <Button Grid.Row="2" Grid.Column="0" 
+                        Height="35" Width="85" Margin="10"
+                        Click="OnClick_LocID3"
+                        Content="Racetrack"/>
+
+            </Grid>
+            
+            
+        </Grid>
         
     </Grid>
 </Window>

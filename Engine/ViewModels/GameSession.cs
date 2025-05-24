@@ -2,41 +2,60 @@
 using Engine.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Engine.ViewModels
 {
-    public class GameSession
+    public class GameSession : BaseNotificationClass
     {
+
+        private Location _currentLocation;
+
         public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
         public Horse SelectedHorse { get; set; }
-        public Location CurrentLocation { get; set; }
-
-        public GameSession() 
+        public Location CurrentLocation
         {
-            CurrentPlayer = new Player();
-            CurrentPlayer.Name = "PlayerName";
-            CurrentPlayer.StableXP = 0;
-            CurrentPlayer.StableLevel = 1;
-            CurrentPlayer.Gold = 500;
+            get { return _currentLocation; }
+            set { _currentLocation = value; OnPropertyChanged("CurrentLocation"); }
+        }
 
-            SelectedHorse = new Horse();
-            SelectedHorse.BarnName = "HorseName";
-            SelectedHorse.FormalName = "FormalName";
-            SelectedHorse.GenderId = "genderId";
-            SelectedHorse.Age = 5;
-            SelectedHorse.HorseLevel = 1;
-            SelectedHorse.HorseXP = 0;
+        public GameSession()
+        {
+            CurrentPlayer = new Player
+            {
+                Name = "PlayerName",
+                StableXP = 0,
+                StableLevel = 1,
+                Gold = 500
+            };
 
-            WorldFactory factory = new WorldFactory();
-            CurrentWorld = factory.CreateWorld();
+
+            SelectedHorse = new Horse 
+            {
+                BarnName = "HorseName",
+                FormalName = "FormalName",
+                GenderId = "genderID",
+                Age = 5,
+                HorseLevel = 1,
+                HorseXP = 0
+            };
+
+            CurrentWorld = WorldFactory.CreateWorld();
             CurrentLocation = CurrentWorld.LocationAt(0);
 
 
 
         }
+
+        public void OnClick_setLocID(int locID)
+        {
+            CurrentLocation = CurrentWorld.LocationAt(locID);
+        }
+
     }
 }

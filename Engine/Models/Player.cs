@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : BaseNotificationClass
     {
         private string _name;
         private int _stableXP;
@@ -16,26 +16,19 @@ namespace Engine.Models
 
         public string Name { 
             get {  return _name; } 
-            set { _name = value; OnPropertyChanged("Name"); }
+            set { _name = value; OnPropertyChanged(nameof(Name)); }
         }
         public int StableXP {
             get { return _stableXP; }
-            set { _stableXP = value; OnPropertyChanged("StableXP"); }
+            set { _stableXP = value; OnPropertyChanged(nameof(StableXP)); }
                 }
         public int StableLevel {
             get { return _stableLevel; } 
-            set { _stableLevel = value; OnPropertyChanged("StableLevel"); } 
+            set { _stableLevel = value; OnPropertyChanged(nameof(StableLevel)); } 
         }
         public int Gold {  
             get { return _gold; } 
-            set { _gold = value; OnPropertyChanged("Gold"); }
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName) 
-        {
-               PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            set { _gold = value; OnPropertyChanged(nameof(Gold)); }
         }
 
     }

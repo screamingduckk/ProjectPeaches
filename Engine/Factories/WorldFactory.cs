@@ -7,9 +7,9 @@ using Engine.Models;
 
 namespace Engine.Factories
 {
-    internal class WorldFactory
+    internal static class WorldFactory
     {
-        internal World CreateWorld() 
+        internal static World CreateWorld() 
         {  
             World newWorld = new World();
             newWorld.AddLocation(0, "Stable", "A cosy little stable.", "C:\\Users\\isabe\\source\\repos\\ProjectPeaches\\Engine\\Images\\Locations\\stable.jpg");

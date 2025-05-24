@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    public class Horse : INotifyPropertyChanged
+    public class Horse : BaseNotificationClass
     {
         private string _barnName;
         private string _formalName;
@@ -19,34 +19,28 @@ namespace Engine.Models
         public string BarnName
         {
             get { return _barnName; }
-            set { _barnName = value; OnPropertyChanged("BarnName"); }
+            set { _barnName = value; OnPropertyChanged(nameof(BarnName)); }
         }
         public string FormalName { 
             get { return _formalName; }
-            set { _formalName = value; OnPropertyChanged("FormalName"); }
+            set { _formalName = value; OnPropertyChanged(nameof(FormalName)); }
         }
         public int Age { 
             get { return _age; } 
-            set {  _age = value; OnPropertyChanged("Age"); } 
+            set {  _age = value; OnPropertyChanged(nameof(Age)); } 
         }
         public string GenderId { 
             get { return _gender; }
-            set { _gender = value; OnPropertyChanged("GenderID"); }
+            set { _gender = value; OnPropertyChanged(nameof(GenderID)); }
         }
         public int HorseXP { 
             get { return _horseXP; }
-            set { _horseXP = value; OnPropertyChanged("HorseXP"); } 
+            set { _horseXP = value; OnPropertyChanged(nameof(HorseXP)); } 
         }
         public int HorseLevel { 
             get { return _horseLevel; }
-            set {_horseLevel = value; OnPropertyChanged("HorseLevel"); }
+            set {_horseLevel = value; OnPropertyChanged(nameof(HorseLevel)); }
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

@@ -26,5 +26,32 @@ namespace WPFUI
 
             DataContext = _gameSession;
         }
+
+        private void OnClick_LocID0(object sender, RoutedEventArgs e)
+        {
+            _gameSession.OnClick_setLocID(0);
+        }
+
+        private void OnClick_LocID1(object sender, RoutedEventArgs e)
+        {
+            _gameSession.OnClick_setLocID(1);
+        }
+
+        private void OnClick_LocID2(object sender, RoutedEventArgs e)
+        {
+            _gameSession.OnClick_setLocID(2);
+        }
+
+        private void OnClick_LocID3(object sender, RoutedEventArgs e)
+        {
+            _gameSession.OnClick_setLocID(3);
+        }
+
+        private void OnClick_LocID4(object sender, RoutedEventArgs e)
+        {
+            _gameSession.OnClick_setLocID(4);
+        }
     }
+
+
 }
