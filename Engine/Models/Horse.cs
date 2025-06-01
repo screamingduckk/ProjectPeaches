@@ -31,7 +31,7 @@ namespace Engine.Models
         }
         public string GenderId { 
             get { return _gender; }
-            set { _gender = value; OnPropertyChanged(nameof(GenderID)); }
+            set { _gender = value; OnPropertyChanged(nameof(GenderId)); }
         }
         public int HorseXP { 
             get { return _horseXP; }

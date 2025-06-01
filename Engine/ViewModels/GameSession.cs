@@ -21,7 +21,9 @@ namespace Engine.ViewModels
         public Location CurrentLocation
         {
             get { return _currentLocation; }
-            set { _currentLocation = value; OnPropertyChanged("CurrentLocation"); }
+            set { _currentLocation = value; OnPropertyChanged("CurrentLocation");
+                GivePlayerQuestsAtLocation();
+            }
         }
 
         public GameSession()
@@ -55,6 +57,17 @@ namespace Engine.ViewModels
         public void OnClick_setLocID(int locID)
         {
             CurrentLocation = CurrentWorld.LocationAt(locID);
+        }
+
+        private void GivePlayerQuestsAtLocation()
+        {
+            foreach(Quest quest in CurrentLocation.QuestsAvailableHere)
+            {
+               if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+                {
+                    CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                }
+            }
         }
 
     }
