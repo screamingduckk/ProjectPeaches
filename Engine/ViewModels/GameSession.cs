@@ -37,15 +37,11 @@ namespace Engine.ViewModels
             };
 
 
-            SelectedHorse = new Horse 
+            SelectedHorse = new Horse
+            ("Brandy", "Cool Cat", 5, "Mare", 0, 1, "horse1.png")
             {
-                BarnName = "HorseName",
-                FormalName = "FormalName",
-                GenderId = "genderID",
-                Age = 5,
-                HorseLevel = 1,
-                HorseXP = 0
             };
+
 
             CurrentWorld = WorldFactory.CreateWorld();
             CurrentLocation = CurrentWorld.LocationAt(0);

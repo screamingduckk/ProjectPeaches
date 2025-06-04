@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Horses\horse1.jpg" />
     <None Remove="Images\Locations\arena.jpg" />
     <None Remove="Images\Locations\horse.jpg" />
     <None Remove="Images\Locations\racetrack.jpg" />
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Horses\horse1.jpg" />
     <Resource Include="Images\Locations\arena.jpg" />
     <Resource Include="Images\Locations\horse.jpg" />
     <Resource Include="Images\Locations\racetrack.jpg" />
