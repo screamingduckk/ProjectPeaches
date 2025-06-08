@@ -10,6 +10,7 @@ namespace Engine.Models
 {
     public class Horse : BaseNotificationClass
     {
+        
         private string _barnName;
         private string _formalName;
         private int _age;
@@ -17,6 +18,7 @@ namespace Engine.Models
         private int _horseXP;
         private int _horseLevel;
         private string imageName;
+        private int _idnum;
 
 
 
@@ -57,18 +59,41 @@ namespace Engine.Models
             set { imageName = value; OnPropertyChanged(nameof(ImageName)); }
         }
 
+        public int IdNum
+        {
+            get { return _idnum; }
+            set { _idnum = value; OnPropertyChanged(nameof(IdNum)); }
+        }
+
         public ObservableCollection<GameItem> HorseInventory { get; set; }
 
-        public Horse(string barnName, string formalName, int age, string gender, int horseXP, int horseLevel, string imageName)
+        private static List<Horse> _ownedHorses = new List<Horse>();
+
+        internal void AddHorse(string barnName, string formalName, int age, string gender, int horseXP, int horseLevel, string imageName, int IDnum)
         {
-            BarnName = barnName;
-            FormalName = formalName;
-            Age = age;
-            GenderId = gender;
-            HorseXP = horseXP;
-            HorseLevel = horseLevel;
-            ImageName = string.Format("C:\\Users\\isabe\\source\\repos\\ProjectPeaches\\Engine\\Images\\Horses\\horse1.jpg", imageName);
-            HorseInventory = new ObservableCollection<GameItem>();
+            Horse horse = new Horse();
+            horse.BarnName = barnName;
+            horse.FormalName = formalName;
+            horse.Age = age;
+            horse.GenderId = gender;
+            horse.HorseXP = horseXP;
+            horse.HorseLevel = horseLevel;
+            horse.ImageName = imageName;
+            horse.IdNum = IDnum;
+           
+            _ownedHorses.Add(horse);
+
+        }
+
+        public Horse GetHorse(int horseID)
+        {
+            foreach (Horse horse in _ownedHorses)
+            { if (horse.IdNum == horseID) { return horse; } }
+
+            return null;
+
         }
     }
+
+
 }

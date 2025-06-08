@@ -37,12 +37,6 @@ namespace Engine.ViewModels
             };
 
 
-            SelectedHorse = new Horse
-            ("Brandy", "Cool Cat", 5, "Mare", 0, 1, "horse1.png")
-            {
-            };
-
-
             CurrentWorld = WorldFactory.CreateWorld();
             CurrentLocation = CurrentWorld.LocationAt(0);
 
@@ -55,11 +49,13 @@ namespace Engine.ViewModels
             CurrentLocation = CurrentWorld.LocationAt(locID);
         }
 
+        public void OnClick_setHorseID(int )
+
         private void GivePlayerQuestsAtLocation()
         {
-            foreach(Quest quest in CurrentLocation.QuestsAvailableHere)
+            foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
             {
-               if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+                if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
                 {
                     CurrentPlayer.Quests.Add(new QuestStatus(quest));
                 }
