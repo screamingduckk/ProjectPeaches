@@ -15,6 +15,7 @@ namespace Engine.Models
         private string _formalName;
         private int _age;
         private string _gender;
+
         private int _horseXP;
         private int _horseLevel;
         private string imageName;
@@ -67,7 +68,7 @@ namespace Engine.Models
 
         public ObservableCollection<GameItem> HorseInventory { get; set; }
 
-        private static List<Horse> _ownedHorses = new List<Horse>();
+        public static List<Horse> OwnedHorses = new List<Horse>();
 
         internal void AddHorse(string barnName, string formalName, int age, string gender, int horseXP, int horseLevel, string imageName, int IDnum)
         {
@@ -80,14 +81,19 @@ namespace Engine.Models
             horse.HorseLevel = horseLevel;
             horse.ImageName = imageName;
             horse.IdNum = IDnum;
-           
-            _ownedHorses.Add(horse);
+
+            OwnedHorses.Add(horse);
 
         }
 
-        public Horse GetHorse(int horseID)
+        public Horse()
         {
-            foreach (Horse horse in _ownedHorses)
+            HorseInventory = new ObservableCollection<GameItem>();
+        }
+
+        public Horse GetHorseByID(int horseID)
+        {
+            foreach (Horse horse in OwnedHorses)
             { if (horse.IdNum == horseID) { return horse; } }
 
             return null;

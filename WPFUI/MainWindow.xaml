@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFUI"
+        xmlns:local="clr-namespace:WPFUI" xmlns:models="clr-namespace:Engine.Models;assembly=Engine" xmlns:viewmodels="clr-namespace:Engine.ViewModels;assembly=Engine" d:DataContext="{d:DesignInstance Type=viewmodels:GameSession}"
         mc:Ignorable="d"
         Title="ProjectPeaches" Height="768" Width="1024">
     <Grid>
@@ -70,7 +70,7 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Row="0" Grid.Column="1" BorderBrush="Gainsboro" BorderThickness="1">
                 <Grid Margin="3">
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -89,11 +89,24 @@
 
                     <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description}" TextWrapping="Wrap"/>
 
-                    
+
                 </Grid>
-                
-                
             </Border>
+
+            <Grid Grid.Row="1" Grid.Column="2">
+                <ListBox ItemsSource="{Binding _displayOwnedHorses}"
+                         SelectedItem="{Binding SelectedHorse}"
+                         Margin="10">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding BarnName}" Margin="5"/>
+                                <TextBlock Text="{Binding FormalName}" Margin="5"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+             </ListBox>
+            </Grid>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -115,7 +128,7 @@
 
 
    <Grid Grid.Row="2" Grid.Column="0" Background="BurlyWood">
-        <TabControl>
+        <TabControl ItemsSource="{Binding Horse._ownedHorses}">
                 <TabItem Header="Inventory">
                     <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}" AutoGenerateColumns="False" HeadersVisibility="Column">
                         <DataGrid.Columns>
@@ -129,14 +142,6 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Quest Name" Binding="{Binding PlayerQuest.Name}" Width="*"/>
                             <DataGridTextColumn Header="Status" Binding="{Binding PlayerQuest.Status}" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-                <TabItem Header="Horses">
-                    <DataGrid ItemsSource="{Binding SelectedHorse.HorseInventory}" AutoGenerateColumns="False" HeadersVisibility="Column">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Item" Binding="{Binding Name}" Width="Auto"/>
-                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
